@@ -2,8 +2,8 @@ import { Card, CardBody, CardHeader, Heading, SimpleGrid, Text } from '@chakra-u
 
 const Main = () => {
 
-    const names = ['Json Formatter', 'Json Comparer', 'SQL Formatter', 'Lorem-Ipsum Generator']
-    const definations = ["Format your json to a readable format", "Compare two json files", "Format your sql queries to readable format", "Generate lorem ipsum text"]
+    const names = ['Json Formatter', 'Json Comparer', 'SQL Formatter', 'Lorem-Ipsum Generator', 'Text Comparer', 'Json Validator']
+    const definations = ["Format your json to a readable format", "Compare two json files", "Format your sql queries to readable format", "Generate lorem ipsum text", "Simply compare two text files to spot out the differences", "Validate your json file to see whether or not they have the correct format"]
 
     const cards = names.map((name, index) => {
         return (
@@ -16,8 +16,6 @@ const Main = () => {
                 </CardBody>
             </Card>)
     })
-
-
     return (
         <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
             {cards}

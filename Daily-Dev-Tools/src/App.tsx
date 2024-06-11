@@ -1,33 +1,27 @@
 import './App.css'
-import { Grid, GridItem, Hide } from '@chakra-ui/react'
-import Header from './Components/Header'
-import Navbar from './Components/Navbar'
-import Main from './Components/Main'
+import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
+import Home from './Components/Home'
+import JsonComparer from './Tool-Components/JsonComparer';
+import JsonFormatter from './Tool-Components/JsonFormatter';
+import SqlFormatter from './Tool-Components/SqlFormatter';
+import LoremIpsum from './Tool-Components/LoremIpsum';
+import TextComparer from './Tool-Components/TextComparer';
+import JsonValidator from './Tool-Components/JsonValidator';
+
 export default function App() {
   return (
-    <Grid
-      templateAreas={{
-        base: `"header" "main" "footer"`,
-        lg: `"header header" "nav main" "footer footer"`
-      }}
-      color='blackAlpha.700'
-      fontWeight='bold'
-      gap={6}
-    >
-      <GridItem pl='2' area={'header'}  >
-        <Header />
-      </GridItem>
-      <Hide below='lg'>
-        <GridItem pl='2' bg='pink.300' area={'nav'} className='pt-6'>
-          <Navbar />
-        </GridItem>
-      </Hide>
-      <GridItem pl='2' bg='green.300' area={'main'}>
-        <Main />
-      </GridItem>
-      <GridItem pl='2' bg='blue.300' area={'footer'}>
-        Footer
-      </GridItem>
-    </Grid >
+
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="JsonFormatter" element={<JsonFormatter />} />
+        <Route path="JsonComparer" element={<JsonComparer />} />
+        <Route path="SQLFormatter" element={<SqlFormatter />} />
+        <Route path="LoremIpsum" element={<LoremIpsum />} />
+        <Route path="TextComparer" element={<TextComparer />} />
+        <Route path="JsonValidator" element={<JsonValidator />} />
+      </Routes>
+    </Router>
+
   )
 }
