@@ -7,11 +7,17 @@ import SqlFormatter from './Tool-Components/SqlFormatter';
 import LoremIpsum from './Tool-Components/LoremIpsum';
 import TextComparer from './Tool-Components/TextComparer';
 import JsonValidator from './Tool-Components/JsonValidator';
+import CurlFormatter from './Tool-Components/CurlFormatter';
+import CharacterCount from './Tool-Components/CharacterCount';
+import Header from './Components/Header';
+import Navbar from './Components/Navbar';
 
 export default function App() {
   return (
 
     <Router>
+      <Header />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="JsonFormatter" element={<JsonFormatter />} />
@@ -20,6 +26,8 @@ export default function App() {
         <Route path="LoremIpsum" element={<LoremIpsum />} />
         <Route path="TextComparer" element={<TextComparer />} />
         <Route path="JsonValidator" element={<JsonValidator />} />
+        <Route path="CurlFormatter" element={<CurlFormatter />} />
+        <Route path="CharacterCount" element={<CharacterCount />} />
       </Routes>
     </Router>
 

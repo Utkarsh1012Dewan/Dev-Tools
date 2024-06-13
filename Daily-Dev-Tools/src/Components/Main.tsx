@@ -2,8 +2,8 @@ import { Card, CardBody, CardHeader, Heading, SimpleGrid, Text } from '@chakra-u
 
 const Main = () => {
 
-    const names = ['Json Formatter', 'Json Comparer', 'SQL Formatter', 'Lorem-Ipsum Generator', 'Text Comparer', 'Json Validator']
-    const definations = ["Format your json to a readable format", "Compare two json files", "Format your sql queries to readable format", "Generate lorem ipsum text", "Simply compare two text files to spot out the differences", "Validate your json file to see whether or not they have the correct format"]
+    const names = ['Json Formatter', 'Json Comparer', 'SQL Formatter', 'Lorem-Ipsum Generator', 'Text Comparer', 'Json Validator', 'Curl Formatter', 'Character Count']
+    const definations = ["Format your json to a readable format", "Compare two json files", "Format your sql queries to readable format", "Generate lorem ipsum text", "Simply compare two text files to spot out the differences", "Validate your json file to see whether or not they have the correct format", "Format a curl command to a readable format", 'Count the number of words, letters, lines and paragraphs in your text']
 
     const cards = names.map((name, index) => {
         return (

@@ -14,14 +14,14 @@ const Home = () => {
             fontWeight='bold'
             gap={6}
         >
-            <GridItem pl='2' area={'header'}>
+            {/* <GridItem pl='2' area={'header'}>
                 <Header />
             </GridItem>
             <Hide below='lg'>
                 <GridItem pl='2' bg='pink.300' area={'nav'} className='pt-6'>
                     <Navbar />
                 </GridItem>
-            </Hide>
+            </Hide> */}
             <GridItem pl='2' bg='green.300' area={'main'}>
                 <Main />
             </GridItem>
