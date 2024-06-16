@@ -1,17 +1,23 @@
-import { ChangeEvent } from "react"
-import { loremIpsum } from "react-lorem-ipsum"
+import { loremIpsum } from "react-lorem-ipsum";
 
-const textGen = (paragraphs: number,
-    words: number, sentences: number, random: boolean
-): String => {
-    const newVal = loremIpsum({
+interface Props {
+    paragraphs: number,
+    words: number,
+    sentences: number,
+    random: boolean
+}
+
+const textGen = ({ paragraphs, words, sentences, random }: Props) => {
+    const paragraphsArray = loremIpsum({
         p: paragraphs,
         avgWordsPerSentence: words,
         avgSentencesPerParagraph: sentences,
         random: random
-    })
+    });
 
-    return newVal[0];
+    const combinedText = paragraphsArray.map(paragraph => paragraph).join(' ');
+
+    return combinedText;
 }
 
-export default textGen
+export default textGen;
