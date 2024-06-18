@@ -4,7 +4,7 @@ import Home from './Components/Home'
 import JsonComparer from './Tool-Components/JsonComparer';
 import JsonFormatter from './Tool-Components/JsonFormatter';
 import SqlFormatter from './Tool-Components/SqlFormatter';
-import LoremIpsum from './Tool-Components/LoremIpsum';
+import RandomTextGenerator from './Tool-Components/RandomTextGenerator';
 import TextComparer from './Tool-Components/TextComparer';
 import JsonValidator from './Tool-Components/JsonValidator';
 import CurlFormatter from './Tool-Components/CurlFormatter';
@@ -23,7 +23,7 @@ export default function App() {
         <Route path="JsonFormatter" element={<JsonFormatter />} />
         <Route path="JsonComparer" element={<JsonComparer />} />
         <Route path="SQLFormatter" element={<SqlFormatter />} />
-        <Route path="LoremIpsum" element={<LoremIpsum />} />
+        <Route path="RandomTextGenerator" element={<RandomTextGenerator />} />
         <Route path="TextComparer" element={<TextComparer />} />
         <Route path="JsonValidator" element={<JsonValidator />} />
         <Route path="CurlFormatter" element={<CurlFormatter />} />
