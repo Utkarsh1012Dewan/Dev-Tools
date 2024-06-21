@@ -17,7 +17,7 @@ const Main = () => {
             </Card>)
     })
     return (
-        <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
+        <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
             {cards}
         </SimpleGrid>
     )

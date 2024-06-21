@@ -29,7 +29,7 @@ export default function App() {
         <Route path="CurlFormatter" element={<CurlFormatter />} />
         <Route path="CharacterCount" element={<CharacterCount />} />
       </Routes>
-    </Router>
+    </Router >
 
   )
 }

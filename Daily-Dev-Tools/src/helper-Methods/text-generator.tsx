@@ -15,7 +15,7 @@ const textGen = ({ paragraphs, words, sentences, random }: Props) => {
         random: random
     });
 
-    const combinedText = paragraphsArray.map(paragraph => paragraph).join('\n\n');
+    const combinedText = paragraphsArray.map(paragraph => paragraph).join('\n\n\n');
 
     return combinedText;
 }
