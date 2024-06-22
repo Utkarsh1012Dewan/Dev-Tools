@@ -1,8 +1,28 @@
-import React from 'react'
+import { VStack, Text } from '@chakra-ui/react'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+
+    const tools = [
+        { name: 'Json Formatter', path: '/JsonFormatter' },
+        { name: 'Json Comparer', path: '/JsonComparer' },
+        { name: 'SQL Formatter', path: '/SQLFormatter' },
+        { name: 'Lorem-Ipsum Generator', path: '/LoremIpsumGenerator' },
+        { name: 'Text Comparer', path: '/TextComparer' },
+        { name: 'Json Validator', path: '/JsonValidator' },
+        { name: 'Curl Formatter', path: '/CurlFormatter' },
+        { name: 'Character Count', path: '/CharacterCount' }
+    ];
+
+
     return (
-        <div>Navbar</div>
+        <VStack align="stretch" spacing={2}>
+            {tools.map((tool, index) => (
+                <Link to={tool.path}>
+                    <Text>{tool.name}</Text>
+                </Link>
+            ))}
+        </VStack>
     )
 }
 

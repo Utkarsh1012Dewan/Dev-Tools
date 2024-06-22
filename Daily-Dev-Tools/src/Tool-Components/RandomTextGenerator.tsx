@@ -43,7 +43,6 @@ const RandomTextGenerator = () => {
           minVal={1} maxVal={50} step={1}
           value={words <= 50 ? words : 50}
           onChange={(value) => setWords(value)}
-
         />
 
         <InputSlider placeholder="Sentences"

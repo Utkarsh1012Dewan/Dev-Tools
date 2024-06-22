@@ -1,5 +1,6 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Grid, GridItem, Box } from '@chakra-ui/react';
 import Home from './Components/Home'
 import JsonComparer from './Tool-Components/JsonComparer';
 import JsonFormatter from './Tool-Components/JsonFormatter';
@@ -14,22 +15,40 @@ import Navbar from './Components/Navbar';
 
 export default function App() {
   return (
-
     <Router>
-      <Header />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="JsonFormatter" element={<JsonFormatter />} />
-        <Route path="JsonComparer" element={<JsonComparer />} />
-        <Route path="SQLFormatter" element={<SqlFormatter />} />
-        <Route path="RandomTextGenerator" element={<RandomTextGenerator />} />
-        <Route path="TextComparer" element={<TextComparer />} />
-        <Route path="JsonValidator" element={<JsonValidator />} />
-        <Route path="CurlFormatter" element={<CurlFormatter />} />
-        <Route path="CharacterCount" element={<CharacterCount />} />
-      </Routes>
+      <Grid
+        templateAreas={{
+          base: `"header" "main"`,
+          lg: `"header header" "nav main"`
+        }}
+        templateColumns={{
+          base: '1fr',
+          lg: 'auto 1fr'
+        }}
+        minHeight="100vh"
+      >
+        <GridItem area="header">
+          <Header />
+        </GridItem>
+        <GridItem area="nav" width={{ lg: '200px' }} display={{ base: 'none', lg: 'block' }}>
+          <Navbar />
+        </GridItem>
+        <GridItem area="main" overflowY="auto">
+          <Box p={4}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/JsonFormatter" element={<JsonFormatter />} />
+              <Route path="/JsonComparer" element={<JsonComparer />} />
+              <Route path="/SQLFormatter" element={<SqlFormatter />} />
+              <Route path="/RandomTextGenerator" element={<RandomTextGenerator />} />
+              <Route path="/TextComparer" element={<TextComparer />} />
+              <Route path="/JsonValidator" element={<JsonValidator />} />
+              <Route path="/CurlFormatter" element={<CurlFormatter />} />
+              <Route path="/CharacterCount" element={<CharacterCount />} />
+            </Routes>
+          </Box>
+        </GridItem>
+      </Grid>
     </Router>
-
   )
 }

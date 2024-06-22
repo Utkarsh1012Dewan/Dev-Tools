@@ -1,34 +1,31 @@
-import { Grid, GridItem, Hide } from '@chakra-ui/react'
-import Header from './Header'
-import Main from './Main'
-import Navbar from './Navbar'
+import { Box, SimpleGrid } from "@chakra-ui/react";
+import ToolCard from "../helper-Tool-components/ToolCard";
 
 const Home = () => {
+
+    const tools = [
+        { name: 'Json Formatter', path: '/JsonFormatter', description: 'Format your json to a readable format' },
+        { name: 'Json Comparer', path: '/JsonComparer', description: 'Compare two json files' },
+        { name: 'SQL Formatter', path: '/SQLFormatter', description: 'Format your sql queries to readable format' },
+        { name: 'Lorem-Ipsum Generator', path: '/LoremIpsumGenerator', description: 'Generate lorem ipsum text' },
+        { name: 'Text Comparer', path: '/TextComparer', description: 'Simply compare two text files to spot out the differences' },
+        { name: 'Json Validator', path: '/JsonValidator', description: 'Validate your json file to see whether or not they have the correct format' },
+        { name: 'Curl Formatter', path: '/CurlFormatter', description: 'Format a curl command to a readable format' },
+        { name: 'Character Count', path: '/CharacterCount', description: 'Count the number of words, letters, lines and paragraphs in your text' }
+    ];
+
+
     return (
-        <Grid
-            templateAreas={{
-                base: `"header" "main" "footer"`,
-                lg: `"header header" "nav main" "footer footer"`
-            }}
-            color='blackAlpha.700'
-            fontWeight='bold'
-            gap={6}
-        >
-            {/* <GridItem pl='2' area={'header'}>
-                <Header />
-            </GridItem>
-            <Hide below='lg'>
-                <GridItem pl='2' bg='pink.300' area={'nav'} className='pt-6'>
-                    <Navbar />
-                </GridItem>
-            </Hide> */}
-            <GridItem pl='2' bg='green.300' area={'main'}>
-                <Main />
-            </GridItem>
-            <GridItem pl='2' bg='blue.300' area={'footer'}>
-                Footer
-            </GridItem>
-        </Grid>
+        <Box as="main" p={4} pl={{ lg: 6 }}>
+            <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={10}>
+                {tools.map((tool, index) => (
+                    <ToolCard key={index}{...tool} />
+                ))}
+            </SimpleGrid>
+            {/* Your SimpleGrid of tool cards here */}
+        </Box>
+
     )
 }
+
 export default Home
