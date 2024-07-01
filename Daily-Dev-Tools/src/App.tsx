@@ -40,7 +40,7 @@ export default function App() {
               <Route path="/JsonFormatter" element={<JsonFormatter />} />
               <Route path="/JsonComparer" element={<JsonComparer />} />
               <Route path="/SQLFormatter" element={<SqlFormatter />} />
-              <Route path="/RandomTextGenerator" element={<RandomTextGenerator />} />
+              <Route path="/LoremIpsumGenerator" element={<RandomTextGenerator />} />
               <Route path="/TextComparer" element={<TextComparer />} />
               <Route path="/JsonValidator" element={<JsonValidator />} />
               <Route path="/CurlFormatter" element={<CurlFormatter />} />

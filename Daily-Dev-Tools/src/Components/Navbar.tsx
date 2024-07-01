@@ -18,7 +18,7 @@ const Navbar = () => {
     return (
         <VStack align="stretch" spacing={2}>
             {tools.map((tool, index) => (
-                <Link to={tool.path}>
+                <Link to={tool.path} key={index}>
                     <Text>{tool.name}</Text>
                 </Link>
             ))}
