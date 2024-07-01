@@ -8,7 +8,6 @@ interface Props {
     description: string;
 }
 
-
 const ToolCard = ({ name, path, description }: Props) => {
     return (
         <Link to={path}>

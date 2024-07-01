@@ -1,29 +1,42 @@
 import { HStack, Box } from '@chakra-ui/react'
-import React, { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import TextAreaAutosize from "react-textarea-autosize"
-import { format, formatDialect, sql } from 'sql-formatter';
+import { format } from 'sql-formatter';
 import Dropdown from '../helper-Tool-components/Dropdown';
 
 const SqlFormatter = () => {
     const [inputValue, setInputValue] = useState<string>("")
     const [outputValue, setOutputValue] = useState<string>("")
-    const [dialect, setDialect] = useState<string>("mysql")
+    //dialect -> language syntax we are choosing to format
+    const [dialect, setDialect] = useState<string>("sql")
 
     const beautify = (value: string) => {
-        const newValue = formatDialect(inputValue, { dialect: sql })
-        setOutputValue(newValue)
+        try {
+            const newValue = format(value, { language: dialect as any, tabWidth: 5 })
+            setOutputValue(newValue)
+        } catch (error) {
+            if (error instanceof Error) {
+                setOutputValue(error.message)
+            } else {
+                setOutputValue("Unexpected Error")
+            }
+        }
     }
 
     const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
         const newValue = e.target.value;
         setInputValue(newValue)
-        beautify(newValue)
     }
+
+    useEffect(() => {
+        beautify(inputValue)
+    }, [inputValue])
+
     return (
         <HStack>
             <Box className="h-auto ">
                 <HStack>
-                    <Dropdown />
+                    <Dropdown dialect={dialect} onChange={setDialect} />
                     <TextAreaAutosize
                         minRows={25}
                         maxRows={25}
