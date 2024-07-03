@@ -11,12 +11,13 @@ const Navbar = () => {
         { name: 'Text Comparer', path: '/TextComparer' },
         { name: 'Json Validator', path: '/JsonValidator' },
         { name: 'Curl Formatter', path: '/CurlFormatter' },
-        { name: 'Character Count', path: '/CharacterCount' }
+        { name: 'Character Count', path: '/CharacterCount' },
+        { name: 'Test Component', path: '/TestComponent' }
     ];
 
 
     return (
-        <VStack align="stretch" spacing={2}>
+        <VStack align="stretch" spacing={5} className="border 5px solid white">
             {tools.map((tool, index) => (
                 <Link to={tool.path} key={index}>
                     <Text>{tool.name}</Text>
