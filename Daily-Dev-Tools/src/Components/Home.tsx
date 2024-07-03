@@ -11,7 +11,9 @@ const Home = () => {
         { name: 'Text Comparer', path: '/TextComparer', description: 'Simply compare two text files to spot out the differences' },
         { name: 'Json Validator', path: '/JsonValidator', description: 'Validate your json file to see whether or not they have the correct format' },
         { name: 'Curl Formatter', path: '/CurlFormatter', description: 'Format a curl command to a readable format' },
-        { name: 'Character Count', path: '/CharacterCount', description: 'Count the number of words, letters, lines and paragraphs in your text' }
+        { name: 'Character Count', path: '/CharacterCount', description: 'Count the number of words, letters, lines and paragraphs in your text' },
+        { name: 'A component just for testing shit', path: '/TestComponent', description: 'Count the number of words, letters, lines and paragraphs in your text' }
+
     ];
 
 

@@ -2,7 +2,7 @@ import { HStack, Box } from '@chakra-ui/react'
 import { ChangeEvent, useEffect, useState } from 'react'
 import TextAreaAutosize from "react-textarea-autosize"
 import { format } from 'sql-formatter';
-import Dropdown from '../helper-Tool-components/Dropdown';
+import Dropdown from '../Components/Dropdown';
 
 const SqlFormatter = () => {
     const [inputValue, setInputValue] = useState<string>("")

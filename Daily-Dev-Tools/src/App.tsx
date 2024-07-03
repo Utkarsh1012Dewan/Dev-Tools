@@ -12,6 +12,7 @@ import CurlFormatter from './Tool-Components/CurlFormatter';
 import CharacterCount from './Tool-Components/CharacterCount';
 import Header from './Components/Header';
 import Navbar from './Components/Navbar';
+import TestComponent from './Tool-Components/TestComponent';
 
 export default function App() {
   return (
@@ -45,6 +46,7 @@ export default function App() {
               <Route path="/JsonValidator" element={<JsonValidator />} />
               <Route path="/CurlFormatter" element={<CurlFormatter />} />
               <Route path="/CharacterCount" element={<CharacterCount />} />
+              <Route path="/TestComponent" element={<TestComponent />} />
             </Routes>
           </Box>
         </GridItem>
