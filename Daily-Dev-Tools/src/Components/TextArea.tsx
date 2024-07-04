@@ -1,6 +1,6 @@
 import { VStack, Button, Grid, GridItem } from '@chakra-ui/react'
 import TextAreaAutosize from "react-textarea-autosize"
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { FaTrashAlt } from "react-icons/fa";
 
 interface Props {
@@ -10,13 +10,20 @@ interface Props {
 }
 
 const TextArea = ({ inputValue, outputValue, onInputChange }: Props) => {
+
+    const [inputValueState, setInputValueState] = useState(inputValue);
+
+    const deleteInput = () => {
+        setInputValueState("");
+    }
     return (
-        <VStack width="100%" spacing={4} bgColor={"orange"}>
+        <VStack width="100%" spacing={4} bgColor={"orange"} >
             <Button
                 leftIcon={<FaTrashAlt />}
                 colorScheme='teal'
                 variant='outline'
                 alignSelf="flex-end"
+                onClick={deleteInput}
             >
                 Delete
             </Button>
@@ -31,8 +38,11 @@ const TextArea = ({ inputValue, outputValue, onInputChange }: Props) => {
                             backgroundColor: 'black',
                             color: 'white',
                         }}
-                        value={inputValue}
-                        onChange={onInputChange}
+                        value={inputValueState}
+                        onChange={(e) => {
+                            setInputValueState(e.target.value);
+                            onInputChange(e);
+                        }}
                     />
                 </GridItem>
                 <GridItem>
@@ -45,12 +55,12 @@ const TextArea = ({ inputValue, outputValue, onInputChange }: Props) => {
                             backgroundColor: 'black',
                             color: 'white',
                         }}
-                        value={inputValue ? outputValue : ""}
+                        value={inputValueState ? outputValue : ""}
                         readOnly
                     />
                 </GridItem>
             </Grid>
-        </VStack>
+        </VStack >
     )
 }
 
