@@ -24,9 +24,10 @@ export default function App() {
         }}
         templateColumns={{
           base: '1fr',
-          lg: 'auto 1fr'
+          lg: '200px 1fr'
         }}
         minHeight="100vh"
+        className="bg-[#0c0a09]"
       >
         <GridItem area="header">
           <Header />
@@ -39,13 +40,13 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/JsonFormatter" element={<JsonFormatter />} />
-              <Route path="/JsonComparer" element={<JsonComparer />} />
               <Route path="/SQLFormatter" element={<SqlFormatter />} />
+              <Route path="/CurlFormatter" element={<CurlFormatter />} />
               <Route path="/LoremIpsumGenerator" element={<RandomTextGenerator />} />
+              <Route path="/CharacterCount" element={<CharacterCount />} />
+              <Route path="/JsonComparer" element={<JsonComparer />} />
               <Route path="/TextComparer" element={<TextComparer />} />
               <Route path="/JsonValidator" element={<JsonValidator />} />
-              <Route path="/CurlFormatter" element={<CurlFormatter />} />
-              <Route path="/CharacterCount" element={<CharacterCount />} />
               <Route path="/TestComponent" element={<TestComponent />} />
             </Routes>
           </Box>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
-        <HStack justifyContent="space-between">
+        <HStack justifyContent="space-between" backgroundColor={"#111827"}>
             <HStack>
                 <Link to={"/"}>
                     <HStack>

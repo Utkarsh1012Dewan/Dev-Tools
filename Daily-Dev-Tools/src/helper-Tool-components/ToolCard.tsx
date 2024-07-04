@@ -1,5 +1,4 @@
 import { Card, CardBody, CardHeader, Heading, Text } from '@chakra-ui/react';
-import React from 'react'
 import { Link } from 'react-router-dom';
 
 interface Props {
@@ -11,15 +10,15 @@ interface Props {
 const ToolCard = ({ name, path, description }: Props) => {
     return (
         <Link to={path}>
-            <Card>
+            <Card className="rounded-sm raleway-proza" backgroundColor={"#111827"} borderWidth={"2px"} borderColor={"#fafafa"}>
                 <CardHeader>
                     <Heading size='md'>{name}</Heading>
                 </CardHeader>
-                <CardBody>
+                <CardBody >
                     <Text>{description}</Text>
                 </CardBody>
             </Card>
-        </Link>
+        </Link >
     )
 }
 
