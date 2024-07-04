@@ -1,7 +1,6 @@
-import { HStack, Box } from "@chakra-ui/react"
-import TextAreaAutosize from "react-textarea-autosize"
-import { ChangeEvent, useEffect, useState } from "react"
+import { ChangeEvent, useState } from "react"
 import curlFormatter from "../helper-Methods/curl-formatter"
+import TextArea from "../Components/TextArea"
 
 const CurlFormatter = () => {
 
@@ -9,10 +8,11 @@ const CurlFormatter = () => {
     const [formattedCurl, setFormattedCurl] = useState<string>("")
     const changeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
         const newValue = e.target.value
-        setValue(newValue)
+        setValue(newValue ? newValue : "")
+        beautify(newValue)
     }
 
-    useEffect(() => {
+    function beautify(value: string) {
         try {
             const val = curlFormatter(value)
             setFormattedCurl(val)
@@ -25,34 +25,13 @@ const CurlFormatter = () => {
                 setValue("Unexpected Error")
             }
         }
-
-    }, [value])
-
+    }
 
     return (
-        <HStack>
-            <Box className="h-auto ">
-                <HStack>
-                    <TextAreaAutosize
-                        minRows={25}
-                        maxRows={25}
-                        placeholder="Input the curl here"
-                        style={{ width: 500, height: 500 }}
-                        value={value}
-                        onChange={changeHandler}
-                    />
-                </HStack>
-            </Box>
-            <Box className="h-auto ">
-                <TextAreaAutosize
-                    minRows={25}
-                    maxRows={25}
-                    placeholder="See the output here"
-                    style={{ width: 500, height: 500 }}
-                    value={formattedCurl}
-                />
-            </Box>
-        </HStack>
+        <TextArea
+            inputValue={value}
+            outputValue={formattedCurl}
+            onInputChange={changeHandler} />
     )
 }
 
