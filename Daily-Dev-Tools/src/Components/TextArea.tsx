@@ -17,7 +17,7 @@ const TextArea = ({ inputValue, outputValue, onInputChange }: Props) => {
         setInputValueState("");
     }
     return (
-        <VStack width="100%" spacing={4} bgColor={"orange"} >
+        <VStack width="100%" spacing={4}  >
             <Button
                 leftIcon={<FaTrashAlt />}
                 colorScheme='teal'
@@ -32,12 +32,8 @@ const TextArea = ({ inputValue, outputValue, onInputChange }: Props) => {
                     <TextAreaAutosize
                         minRows={23}
                         placeholder="Input the json file here"
-                        style={{
-                            width: '100%',
-                            padding: '10px',
-                            backgroundColor: 'black',
-                            color: 'white',
-                        }}
+                        className="w-full p-2.5 bg-black text-white rounded-md 
+                        border border-[#fafafa]"
                         value={inputValueState}
                         onChange={(e) => {
                             setInputValueState(e.target.value);
@@ -49,12 +45,8 @@ const TextArea = ({ inputValue, outputValue, onInputChange }: Props) => {
                     <TextAreaAutosize
                         minRows={23}
                         placeholder="Output will appear here"
-                        style={{
-                            width: '100%',
-                            padding: '10px',
-                            backgroundColor: 'black',
-                            color: 'white',
-                        }}
+                        className="w-full p-2.5 bg-black text-white rounded-md 
+                        border border-[#fafafa]"
                         value={inputValueState ? outputValue : ""}
                         readOnly
                     />
