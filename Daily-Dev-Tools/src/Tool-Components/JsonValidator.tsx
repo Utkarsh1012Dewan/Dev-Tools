@@ -1,7 +1,9 @@
+import { Heading } from "@chakra-ui/react"
+import { componentNames } from "../data/tools"
 
 const JsonValidator = () => {
     return (
-        <div>JsonValidator</div>
+        <Heading fontFamily={"ubuntu"} size="3xl">{componentNames.jsonValidator}</Heading>
     )
 }
 

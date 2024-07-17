@@ -1,7 +1,8 @@
 import { Heading, HStack, Text, Box, VStack } from "@chakra-ui/react"
 import { ChangeEvent, useState } from "react"
 import TextAreaAutosize from "react-textarea-autosize"
-import textStatCalculator from "../helper-Methods/text-data-calculator"
+import textStatCalculator from "../helpers/text-data-calculator"
+import { componentNames } from "../data/tools"
 
 const CharacterCount = () => {
 
@@ -23,37 +24,40 @@ const CharacterCount = () => {
     }
 
     return (
-        <HStack>
-            <VStack spacing={5}>
-                <Heading size="lg">Statistics</Heading>
-                <HStack spacing={10}>
-                    <VStack align="self-start">
-                        <Text>Characters : </Text>
-                        <Text>Words :</Text>
-                        <Text>Lines :</Text>
-                        <Text>Paragraphs: </Text>
-                    </VStack>
-                    <VStack>
-                        <Text>{letterCount}</Text>
-                        <Text>{wordCount}</Text>
-                        <Text>{lineCount}</Text>
-                        <Text>{paraCount}</Text>
-                    </VStack>
-                </HStack>
-            </VStack>
+        <>
+            <Heading fontFamily={"ubuntu"} size="3xl" className="mb-5">{componentNames.characterCount}</Heading>
             <HStack>
-                <Box className="h-auto ">
-                    <TextAreaAutosize
-                        minRows={25}
-                        maxRows={25}
-                        placeholder="Paste your text here."
-                        style={{ width: 500, height: 500 }}
-                        value={input}
-                        onChange={updater}
-                    />
-                </Box>
+                <VStack spacing={5}>
+                    <Heading size="lg">Statistics</Heading>
+                    <HStack spacing={10}>
+                        <VStack align="self-start">
+                            <Text>Characters : </Text>
+                            <Text>Words :</Text>
+                            <Text>Lines :</Text>
+                            <Text>Paragraphs: </Text>
+                        </VStack>
+                        <VStack>
+                            <Text>{letterCount}</Text>
+                            <Text>{wordCount}</Text>
+                            <Text>{lineCount}</Text>
+                            <Text>{paraCount}</Text>
+                        </VStack>
+                    </HStack>
+                </VStack>
+                <HStack>
+                    <Box className="h-auto ">
+                        <TextAreaAutosize
+                            minRows={25}
+                            maxRows={25}
+                            placeholder="Paste your text here."
+                            style={{ width: 500, height: 500 }}
+                            value={input}
+                            onChange={updater}
+                        />
+                    </Box>
+                </HStack>
             </HStack>
-        </HStack>
+        </>
     )
 }
 

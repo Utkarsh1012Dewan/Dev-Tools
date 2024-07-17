@@ -1,6 +1,8 @@
 import { ChangeEvent, useState } from 'react'
 import { format } from 'sql-formatter';
 import TextArea from '../Components/TextArea';
+import { Heading } from '@chakra-ui/react';
+import { componentNames } from '../data/tools';
 
 const SqlFormatter = () => {
     const [inputValue, setInputValue] = useState<string>("")
@@ -26,7 +28,12 @@ const SqlFormatter = () => {
         beautify(newValue)
     }
     return (
-        <TextArea inputValue={inputValue} outputValue={outputValue} onInputChange={handleInputChange} />
+        <>
+            <Heading
+                fontFamily={"ubuntu"} size="3xl">{componentNames.sqlFormatter}
+            </Heading>
+            <TextArea inputValue={inputValue} outputValue={outputValue} onInputChange={handleInputChange} />
+        </>
     )
 }
 

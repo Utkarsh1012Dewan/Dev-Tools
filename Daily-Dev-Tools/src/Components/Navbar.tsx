@@ -1,4 +1,4 @@
-import { VStack, Text } from '@chakra-ui/react'
+import { VStack, Text, Box } from '@chakra-ui/react'
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -17,13 +17,15 @@ const Navbar = () => {
 
 
     return (
-        <VStack align="stretch" spacing={5} className="border 5px solid white">
-            {tools.map((tool, index) => (
-                <Link to={tool.path} key={index}>
-                    <Text>{tool.name}</Text>
-                </Link>
-            ))}
-        </VStack>
+        <Box height="100%" overflowY="auto">
+            <VStack align="stretch" spacing={5} className="" backgroundColor={"#111827"}>
+                {tools.map((tool, index) => (
+                    <Link to={tool.path} key={index}>
+                        <Text>{tool.name}</Text>
+                    </Link>
+                ))}
+            </VStack>
+        </Box>
     )
 }
 

@@ -1,7 +1,9 @@
+import { Heading } from "@chakra-ui/react"
+import { componentNames } from "../data/tools"
 
 const TextComparer = () => {
     return (
-        <div>TextComparer</div>
+        <Heading fontFamily={"ubuntu"} size="3xl">{componentNames.textComparer}</Heading>
     )
 }
 

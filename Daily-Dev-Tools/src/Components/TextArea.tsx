@@ -17,7 +17,7 @@ const TextArea = ({ inputValue, outputValue, onInputChange }: Props) => {
         setInputValueState("");
     }
     return (
-        <VStack width="100%" spacing={4} bgColor={"orange"} >
+        <VStack width="100%" spacing={4}  >
             <Button
                 leftIcon={<FaTrashAlt />}
                 colorScheme='teal'
@@ -30,14 +30,10 @@ const TextArea = ({ inputValue, outputValue, onInputChange }: Props) => {
             <Grid templateColumns={['1fr', null, 'repeat(2, 1fr)']} gap={4} width="100%">
                 <GridItem>
                     <TextAreaAutosize
-                        minRows={23}
+                        minRows={20}
                         placeholder="Input the json file here"
-                        style={{
-                            width: '100%',
-                            padding: '10px',
-                            backgroundColor: 'black',
-                            color: 'white',
-                        }}
+                        className="w-full p-2.5 bg-black text-white rounded-md 
+                        border border-[#fafafa]"
                         value={inputValueState}
                         onChange={(e) => {
                             setInputValueState(e.target.value);
@@ -47,14 +43,10 @@ const TextArea = ({ inputValue, outputValue, onInputChange }: Props) => {
                 </GridItem>
                 <GridItem>
                     <TextAreaAutosize
-                        minRows={23}
+                        minRows={20}
                         placeholder="Output will appear here"
-                        style={{
-                            width: '100%',
-                            padding: '10px',
-                            backgroundColor: 'black',
-                            color: 'white',
-                        }}
+                        className="w-full p-2.5 bg-black text-white rounded-md 
+                        border border-[#fafafa]"
                         value={inputValueState ? outputValue : ""}
                         readOnly
                     />
