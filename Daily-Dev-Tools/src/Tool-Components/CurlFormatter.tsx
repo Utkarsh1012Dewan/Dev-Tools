@@ -1,6 +1,8 @@
 import { ChangeEvent, useState } from "react"
-import curlFormatter from "../helper-Methods/curl-formatter"
+import curlFormatter from "../helpers/curl-formatter"
 import TextArea from "../Components/TextArea"
+import { componentNames } from "../data/tools"
+import { Heading } from "@chakra-ui/react"
 
 const CurlFormatter = () => {
 
@@ -28,10 +30,13 @@ const CurlFormatter = () => {
     }
 
     return (
-        <TextArea
-            inputValue={value}
-            outputValue={formattedCurl}
-            onInputChange={changeHandler} />
+        <>
+            <Heading fontFamily={"ubuntu"} size="3xl">{componentNames.curlFormatter}</Heading>
+            <TextArea
+                inputValue={value}
+                outputValue={formattedCurl}
+                onInputChange={changeHandler} />
+        </>
     )
 }
 

@@ -30,7 +30,7 @@ const TextArea = ({ inputValue, outputValue, onInputChange }: Props) => {
             <Grid templateColumns={['1fr', null, 'repeat(2, 1fr)']} gap={4} width="100%">
                 <GridItem>
                     <TextAreaAutosize
-                        minRows={23}
+                        minRows={20}
                         placeholder="Input the json file here"
                         className="w-full p-2.5 bg-black text-white rounded-md 
                         border border-[#fafafa]"
@@ -43,7 +43,7 @@ const TextArea = ({ inputValue, outputValue, onInputChange }: Props) => {
                 </GridItem>
                 <GridItem>
                     <TextAreaAutosize
-                        minRows={23}
+                        minRows={20}
                         placeholder="Output will appear here"
                         className="w-full p-2.5 bg-black text-white rounded-md 
                         border border-[#fafafa]"

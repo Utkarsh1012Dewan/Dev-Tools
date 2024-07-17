@@ -10,7 +10,7 @@ interface Props {
 const ToolCard = ({ name, path, description }: Props) => {
     return (
         <Link to={path}>
-            <Card className="rounded-sm raleway-proza" backgroundColor={"#111827"} borderWidth={"2px"} borderColor={"#fafafa"}>
+            <Card className="rounded-sm raleway-proza min-w-48 overflow-hidden" backgroundColor={"#111827"} borderWidth={"2px"} borderColor={"#fafafa"}>
                 <CardHeader>
                     <Heading size='md'>{name}</Heading>
                 </CardHeader>
