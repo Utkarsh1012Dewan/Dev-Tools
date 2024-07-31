@@ -32,7 +32,7 @@ const RandomTextGenerator = () => {
       </Heading>
       <Box className="h-auto p-5">
         <HStack justifyContent={'space-between'}
-          className="w-[700px] mb-[20px]">
+          className="w-[700px] mb-[20px] bg-zinc-500">
           <VStack>
             <InputSlider placeholder="Words"
               minVal={1} maxVal={50} step={1}
@@ -63,10 +63,10 @@ const RandomTextGenerator = () => {
         </HStack>
 
         <TextAreaAutosize
-          minRows={25}
-          maxRows={25}
+          minRows={17}
+          maxRows={18}
           placeholder="Generated text occurs here"
-          style={{ width: 700, height: 450 }}
+          style={{ width: 900, height: 450 }}
           value={input}
           onChange={updater}
           readOnly={true}

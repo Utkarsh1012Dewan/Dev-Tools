@@ -22,8 +22,9 @@ const TextArea = ({ inputValue, outputValue, onInputChange }: Props) => {
                 leftIcon={<FaTrashAlt />}
                 colorScheme='teal'
                 variant='outline'
-                alignSelf="flex-end"
+                alignSelf="flex-start"
                 onClick={deleteInput}
+                className="mt-5"
             >
                 Delete
             </Button>

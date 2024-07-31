@@ -1,5 +1,6 @@
-import { VStack, Text, Box } from '@chakra-ui/react'
+import { VStack, Text, Box, Heading } from '@chakra-ui/react'
 import { Link } from 'react-router-dom';
+import { comparers, formatters, textComponents } from '../data/tools';
 
 
 const tools = [
@@ -18,9 +19,29 @@ const Navbar = () => {
 
 
     return (
-        <Box height="100%" overflowY="auto">
-            <VStack align="stretch" spacing={5} className="" backgroundColor={"#111827"}>
-                {tools.map((tool, index) => (
+        <Box height="100%" overflowY="auto" >
+            <VStack align="stretch" spacing={6}
+                className="pl-3 mt-5" backgroundColor={"#111827"}>
+                <Heading size="md" className="italic" >Formatters</Heading>
+                {formatters.map((tool, index) => (
+                    <Link to={tool.path} key={index}>
+                        <Text>{tool.name}</Text>
+                    </Link>
+                ))}
+            </VStack>
+            <VStack align="stretch" spacing={5}
+                className="pl-3 pt-5" backgroundColor={"#111827"}>
+                <Heading size="md" className="italic" >Text-Based-Tools</Heading>
+                {textComponents.map((tool, index) => (
+                    <Link to={tool.path} key={index}>
+                        <Text>{tool.name}</Text>
+                    </Link>
+                ))}
+            </VStack>
+            <VStack align="stretch" spacing={6}
+                className="pl-3 pt-5" backgroundColor={"#111827"}>
+                <Heading size="md" className="italic" >Comparers</Heading>
+                {comparers.map((tool, index) => (
                     <Link to={tool.path} key={index}>
                         <Text>{tool.name}</Text>
                     </Link>

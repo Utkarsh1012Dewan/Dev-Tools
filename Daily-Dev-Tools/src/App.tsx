@@ -12,7 +12,7 @@ import CurlFormatter from './Tool-Components/CurlFormatter';
 import CharacterCount from './Tool-Components/CharacterCount';
 import Header from './Components/Header';
 import Navbar from './Components/Navbar';
-import TestComponent from './Tool-Components/TestComponent';
+//import TestComponent from './Tool-Components/TestComponent';
 
 export default function App() {
   return (
@@ -47,7 +47,7 @@ export default function App() {
               <Route path="/JsonComparer" element={<JsonComparer />} />
               <Route path="/TextComparer" element={<TextComparer />} />
               <Route path="/JsonValidator" element={<JsonValidator />} />
-              <Route path="/TestComponent" element={<TestComponent />} />
+              {/* <Route path="/TestComponent" element={<TestComponent />} /> */}
             </Routes>
           </Box>
         </GridItem>

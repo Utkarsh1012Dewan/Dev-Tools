@@ -1,7 +1,6 @@
-import { HStack, Heading, Hide, Image, Input, Kbd, Text, defineStyle, defineStyleConfig, useMediaQuery } from '@chakra-ui/react'
+import { HStack, Heading, Image, Input, Kbd, defineStyle, defineStyleConfig, useMediaQuery } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
-import logo from '../assets/logo.jpeg'
-import { HiBars3 } from "react-icons/hi2";
+import newLogo from '../assets/newLogo.png'
 import NavDrawer from './NavDrawer';
 
 
@@ -22,7 +21,7 @@ const Header = () => {
                 <Link to={"/"}>
                     <HStack>
                         <NavDrawer />
-                        <Image src={logo} alt="logo" boxSize={"60px"} />
+                        <Image src={newLogo} alt="logo" boxSize={"60px"} />
                         <Heading fontFamily="sans-serif" color="#00e5ff" fontSize={{ "sm": "xl", "md": "2xl", "lg": "3xl" }}>Daily-Dev-Tools.com</Heading>
                     </HStack>
                 </Link>

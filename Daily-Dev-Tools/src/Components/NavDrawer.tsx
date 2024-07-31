@@ -1,21 +1,19 @@
 import {
     Drawer,
     DrawerBody,
-    DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
     Button,
-    Input,
     useDisclosure,
     Text,
     Hide,
+    Heading,
 } from '@chakra-ui/react'
 import React from 'react'
-import { tools } from './Navbar';
 import { Link } from 'react-router-dom';
-import { HiBars3 } from "react-icons/hi2";
+import { formatters } from '../data/tools';
 
 
 function NavDrawer() {
@@ -42,9 +40,10 @@ function NavDrawer() {
                     <DrawerHeader>SELECT A TOOL</DrawerHeader>
 
                     <DrawerBody>
-                        {tools.map((tool, index) => (
+                        <Heading size="md" className="italic" >Formatters</Heading>
+                        {formatters.map((tool, index) => (
                             <Link to={tool.path} key={index}>
-                                <Text>{tool.name}</Text>
+                                <Text onClick={onClose} className="pb-5">{tool.name}</Text>
                             </Link>
                         ))}
                     </DrawerBody>
