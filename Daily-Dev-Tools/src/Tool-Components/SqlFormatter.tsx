@@ -8,8 +8,8 @@ const SqlFormatter = () => {
     const [inputValue, setInputValue] = useState<string>("")
     const [outputValue, setOutputValue] = useState<string>("")
     //dialect -> language syntax we are choosing to format
-    const [dialect, setDialect] = useState<string>("sql")
-
+    const [dialect] = useState<string>("sql")
+    //We use a set dialect above which is removed to deploy
     const beautify = (value: string) => {
         try {
             const newValue = format(value, { language: dialect as any, tabWidth: 5 })

@@ -1,4 +1,4 @@
-import { Box, Heading, SimpleGrid, VStack, Highlight } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, VStack } from "@chakra-ui/react";
 import ToolCard from "../helper-Tool-components/ToolCard";
 import { comparers, formatters, textComponents } from "../data/tools";
 
