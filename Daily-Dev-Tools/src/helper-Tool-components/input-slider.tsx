@@ -1,4 +1,4 @@
-import { HStack, Input, Slider, SliderFilledTrack, SliderMark, SliderThumb, SliderTrack } from "@chakra-ui/react";
+import { HStack, Input, Slider, SliderFilledTrack, SliderMark, SliderThumb, SliderTrack, Tooltip } from "@chakra-ui/react";
 import { ChangeEvent, useState } from "react";
 
 interface Props {
@@ -12,6 +12,7 @@ interface Props {
 
 const InputSlider = ({ placeholder, minVal, maxVal, step, value, onChange }: Props) => {
     const [inputValue, setInputValue] = useState(value);
+    const [showTooltip, setShowTooltip] = useState(false)
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const newValue = Number(e.target.value);
@@ -41,22 +42,21 @@ const InputSlider = ({ placeholder, minVal, maxVal, step, value, onChange }: Pro
                 step={step}
                 value={inputValue}
                 onChange={handleSliderChange}
+                onMouseEnter={() => setShowTooltip(true)}
+                onMouseLeave={() => setShowTooltip(false)}
             >
-                <SliderMark
-                    value={inputValue <= maxVal ? inputValue : maxVal}
-                    textAlign='center'
-                    bg='blue.500'
-                    color='white'
-                    mt='-10'
-                    ml='-4'
-                    w='8'
-                >
-                    {inputValue <= maxVal ? inputValue : maxVal}
-                </SliderMark>
                 <SliderTrack bg='white'>
                     <SliderFilledTrack bg='tomato' />
                 </SliderTrack>
-                <SliderThumb boxSize={5} />
+                <Tooltip
+                    hasArrow
+                    bg='teal.500'
+                    color='white'
+                    placement='top'
+                    isOpen={showTooltip}
+                    label={`${value}`}>
+                    <SliderThumb boxSize={4} />
+                </Tooltip>
             </Slider>
         </HStack>
     );

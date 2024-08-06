@@ -1,4 +1,4 @@
-import { Box, HStack, VStack, Text, Heading } from '@chakra-ui/react';
+import { HStack, VStack, Text, Heading, SimpleGrid } from '@chakra-ui/react';
 import { ChangeEvent, useEffect, useState } from 'react';
 import TextAreaAutosize from "react-textarea-autosize"
 import textGen from '../helpers/text-generator';
@@ -24,54 +24,69 @@ const RandomTextGenerator = () => {
     setInput(val)
   }, [words, paragraphs, sentences, random])
 
-
   return (
     <>
-      <Heading fontFamily={"ubuntu"} size="3xl" className="mb-5">
+      <Heading fontFamily={"ubuntu"} size="3xl" className="mb-4">
         {componentNames.loremIpsumGenerator}
       </Heading>
-      <Box className="h-auto p-5">
-        <HStack justifyContent={'space-between'}
-          className="w-[700px] mb-[20px] bg-zinc-500">
-          <VStack>
-            <InputSlider placeholder="Words"
-              minVal={1} maxVal={50} step={1}
-              value={words <= 50 ? words : 50}
-              onChange={(value) => setWords(value)}
+      <SimpleGrid
+        columns={{ base: 1, md: 2 }}
+        spacing={4}
+        className="mb-[10px] border border-white rounded-md"
+        p={2}
+      >
+        <VStack align="stretch">
+          <Text className="font-bold">Words</Text>
+          <InputSlider
+            placeholder="Words"
+            minVal={1}
+            maxVal={50}
+            step={1}
+            value={words <= 50 ? words : 50}
+            onChange={(value) => setWords(value)}
+          />
+          <Text className="font-bold">Sentences</Text>
+          <InputSlider
+            placeholder="Sentences"
+            minVal={1}
+            maxVal={20}
+            step={1}
+            value={sentences <= 20 ? sentences : 20}
+            onChange={(value) => setSentences(value)}
+          />
+        </VStack>
+        <VStack align="stretch">
+          <Text className="font-bold">Paragraphs</Text>
+          <InputSlider
+            placeholder="Paragraphs"
+            minVal={1}
+            maxVal={20}
+            step={1}
+            value={paragraphs <= 10 ? paragraphs : 10}
+            onChange={(value) => setParagraph(value)}
+          />
+          <HStack>
+            <Text className="font-bold">Random Sentences?</Text>
+            <Switch
+              isChecked={random}
+              id='email-alerts'
+              size="sm"
+              value={String(random)}
+              onChange={(e) => setRandom(Boolean(e.target.checked))}
             />
+          </HStack>
+        </VStack>
+      </SimpleGrid>
 
-            <InputSlider placeholder="Sentences"
-              minVal={1} maxVal={20} step={1}
-              value={sentences <= 20 ? sentences : 20}
-              onChange={(value) => setSentences(value)}
-            />
-          </VStack>
-          <VStack>
-            <InputSlider placeholder="Paragraphs"
-              minVal={1} maxVal={20} step={1}
-              value={paragraphs <= 10 ? paragraphs : 10}
-              onChange={(value) => setParagraph(value)}
-            />
-
-            <HStack>
-              <Text>Random Sentences?</Text>
-              <Switch isChecked={random} id='email-alerts' size="sm"
-                value={String(random)}
-                onChange={(e) => setRandom(Boolean(e.target.checked))} />
-            </HStack>
-          </VStack>
-        </HStack>
-
-        <TextAreaAutosize
-          minRows={17}
-          maxRows={18}
-          placeholder="Generated text occurs here"
-          style={{ width: 900, height: 450 }}
-          value={input}
-          onChange={updater}
-          readOnly={true}
-        />
-      </Box>
+      <TextAreaAutosize
+        minRows={16}
+        className="w-full p-2.5 bg-black text-white rounded-md 
+          border border-[#fafafa]"
+        placeholder="Generated text occurs here"
+        value={input}
+        onChange={updater}
+        readOnly={true}
+      />
     </>)
 }
 

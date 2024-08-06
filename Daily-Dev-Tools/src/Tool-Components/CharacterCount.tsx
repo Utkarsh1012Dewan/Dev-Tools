@@ -1,8 +1,9 @@
-import { Heading, HStack, Text, Box, VStack } from "@chakra-ui/react"
+import { Heading, HStack, Text, Box, VStack, Stack, Button } from "@chakra-ui/react"
 import { ChangeEvent, useState } from "react"
 import TextAreaAutosize from "react-textarea-autosize"
 import textStatCalculator from "../helpers/text-data-calculator"
 import { componentNames } from "../data/tools"
+import { FaTrashAlt } from "react-icons/fa"
 
 const CharacterCount = () => {
 
@@ -23,40 +24,56 @@ const CharacterCount = () => {
         setParaCount(data.paragraphs)
     }
 
+    const deleteInput = () => {
+        setInput("")
+        setLetterCount(0)
+        setWordCount(0)
+        setLineCount(0)
+        setParaCount(0)
+    }
+
     return (
         <>
             <Heading fontFamily={"ubuntu"} size="3xl" className="mb-5">{componentNames.characterCount}</Heading>
-            <HStack>
-                <VStack spacing={5}>
-                    <Heading size="lg">Statistics</Heading>
-                    <HStack spacing={10}>
-                        <VStack align="self-start">
-                            <Text>Characters : </Text>
-                            <Text>Words :</Text>
-                            <Text>Lines :</Text>
-                            <Text>Paragraphs: </Text>
-                        </VStack>
-                        <VStack>
-                            <Text>{letterCount}</Text>
-                            <Text>{wordCount}</Text>
-                            <Text>{lineCount}</Text>
-                            <Text>{paraCount}</Text>
-                        </VStack>
-                    </HStack>
+            <Button
+                leftIcon={<FaTrashAlt />}
+                colorScheme='teal'
+                variant='outline'
+                alignSelf="flex-end"
+                onClick={deleteInput}
+                className="mb-5"
+            >
+                Delete
+            </Button>
+            <Stack direction={['column', 'row']}>
+                <VStack spacing={3} className="mr-2" justifyContent={"space-between"}>
+                    <VStack alignContent="flex-end" className='border-2 border-white p-5 min-w-full'>
+                        <Heading size="lg" className="mb-5">Statistics</Heading>
+                        <HStack spacing={12}>
+                            <VStack align="self-start" spacing={5}>
+                                <Text>Characters: </Text>
+                                <Text>Words :</Text>
+                                <Text>Lines :</Text>
+                                <Text>Paragraphs: </Text>
+                            </VStack>
+                            <VStack spacing={5}>
+                                <Text>{letterCount}</Text>
+                                <Text>{wordCount}</Text>
+                                <Text>{lineCount}</Text>
+                                <Text>{paraCount}</Text>
+                            </VStack>
+                        </HStack>
+                    </VStack>
                 </VStack>
-                <HStack>
-                    <Box className="h-auto ">
-                        <TextAreaAutosize
-                            minRows={25}
-                            maxRows={25}
-                            placeholder="Paste your text here."
-                            style={{ width: 500, height: 500 }}
-                            value={input}
-                            onChange={updater}
-                        />
-                    </Box>
-                </HStack>
-            </HStack>
+                <TextAreaAutosize
+                    minRows={20}
+                    className="w-full p-2.5 bg-black text-white rounded-md 
+                              border border-[#fafafa]"
+                    placeholder="Paste your text here."
+                    value={input}
+                    onChange={updater}
+                />
+            </Stack >
         </>
     )
 }
