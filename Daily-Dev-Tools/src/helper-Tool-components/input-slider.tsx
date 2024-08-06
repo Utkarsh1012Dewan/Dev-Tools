@@ -1,4 +1,4 @@
-import { HStack, Input, Slider, SliderFilledTrack, SliderMark, SliderThumb, SliderTrack, Tooltip } from "@chakra-ui/react";
+import { HStack, Input, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Tooltip } from "@chakra-ui/react";
 import { ChangeEvent, useState } from "react";
 
 interface Props {

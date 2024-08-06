@@ -1,4 +1,4 @@
-import { Heading, HStack, Text, Box, VStack, Stack, Button } from "@chakra-ui/react"
+import { Heading, HStack, Text, VStack, Stack, Button } from "@chakra-ui/react"
 import { ChangeEvent, useState } from "react"
 import TextAreaAutosize from "react-textarea-autosize"
 import textStatCalculator from "../helpers/text-data-calculator"
